@@ -17,6 +17,7 @@ The algorithms below, written by me, **are given as an example**. Many of them a
 |:-----------:|:--------------:|:-----------------------:|:-------------------------------:|:---------------------------------:|
 | Bubble sort |     Array      |          O(n)           |             O(n^2)              |              O(n^2)               |
 | Insert sort |     Array      |          O(n)           |             O(n^2)              |              O(n^2)               |
+|  MergeSort  |     Array      |      O(n log (n))       |           O(n log(n))           |            O(n log(n))            |
 | Quick sort  |     Array      |       O(n log(n))       |           O(n log(n))           |              O(n^2)               |
 | Shell sort  |     Array      |         θ(n^2)          |             θ(n^2)              |              θ(n^2)               |
 
