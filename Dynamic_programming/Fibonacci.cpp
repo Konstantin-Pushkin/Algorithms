@@ -17,7 +17,7 @@ vector<vector<int_fast64_t>> matrixMultiplication(const vector<vector<int_fast64
     return result;
 }
 
-int_fast64_t fibonacci(int_fast64_t n)
+int_fast64_t fibonacci(uint_fast64_t n)
 {
     vector<vector<int_fast64_t>> result = {{1, 0}, {0, 1}};
     vector<vector<int_fast64_t>> matrix = {{0, 1}, {1, 1}};
@@ -37,7 +37,7 @@ int_fast64_t fibonacci(int_fast64_t n)
 
 int main()
 {
-    int_fast64_t n;
+    uint_fast64_t n;
     std::cin >> n;
 
     int_fast64_t fibonacciNumber = fibonacci(n);
