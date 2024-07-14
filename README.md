@@ -3,9 +3,9 @@
 The algorithms below, written by me, **are given as an example**. Many of them are implemented in the standard library of the C++ language, they are much more productive. Thanks!
 
 ## Dynamic programming
-| Algorithm |
-|:---------:|
-| Fibonacci |
+| Algorithm | Working Time |
+|:---------:|:------------:|
+| Fibonacci |  O(log(n))   |
 
 ## Graph
 
