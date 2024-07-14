@@ -19,3 +19,6 @@ add_executable(InsertSort Sorting/InsertSort.cpp)
 add_executable(MergeSort Sorting/MergeSort.cpp)
 add_executable(BFS Graph/BFS.cpp)
 add_executable(Dijkstra Graph/Dijkstra'_algorithm.cpp)
+
+# Dynamic programming
+add_executable(Fibonacci Dynamic_programming/Fibonacci.cpp)
