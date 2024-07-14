@@ -13,6 +13,7 @@ add_executable(BlockInterpolationSearch Search/BlockInterpolationSearch.cpp)
 # Sorting
 add_executable(BubbleSort Sorting/BubbleSort.cpp)
 add_executable(QuickSort Sorting/QuickSort.cpp)
+add_executable(QuickSort_2 Sorting/QuickSort_2.cpp)
 add_executable(ShellSort Sorting/ShellSort.cpp)
 add_executable(InsertSort Sorting/InsertSort.cpp)
 add_executable(MergeSort Sorting/MergeSort.cpp)
