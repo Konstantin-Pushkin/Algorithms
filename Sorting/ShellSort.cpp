@@ -11,7 +11,7 @@ void shellSort(std::vector<u_int64_t> &array)
 
     while(step > 0)
     {
-        for(u_int64_t i = step; i < len; ++i)
+        for(u_int64_t i = step; i != len; ++i)
         {
             u_int64_t temp = array[i];
             u_int64_t j;
@@ -22,6 +22,7 @@ void shellSort(std::vector<u_int64_t> &array)
             }
             array[j] = temp;
         }
+
         step /= 2;
     }
 }
