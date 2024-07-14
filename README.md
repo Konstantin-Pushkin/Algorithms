@@ -21,6 +21,8 @@ The algorithms below, written by me, **are given as an example**. Many of them a
 | Quick sort  |     Array      |       O(n log(n))       |           O(n log(n))           |              O(n^2)               |
 | Shell sort  |     Array      |         θ(n^2)          |             θ(n^2)              |              θ(n^2)               |
 
+## Graph
+
 |      Algorithm       |
 |:--------------------:|
 | Breadth-First Search |
