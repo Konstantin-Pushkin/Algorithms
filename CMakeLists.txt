@@ -17,7 +17,12 @@ add_executable(QuickSort_2 Sorting/QuickSort_2.cpp)
 add_executable(ShellSort Sorting/ShellSort.cpp)
 add_executable(InsertSort Sorting/InsertSort.cpp)
 add_executable(MergeSort Sorting/MergeSort.cpp)
+
+# Graph
 add_executable(BFS Graph/BFS.cpp)
+add_executable(BFS_2 Graph/BFS_2.cpp)
+add_executable(DFS Graph/DFS.cpp)
+add_executable(DFS_2 Graph/DFS_2.cpp)
 add_executable(Dijkstra Graph/Dijkstra'_algorithm.cpp)
 
 # Dynamic programming
