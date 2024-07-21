@@ -23,20 +23,6 @@ void addingEdgeToGraph(std::unordered_map<uint64_t, std::list<uint64_t>> &graph,
     }
 }
 
-void printGraph(std::unordered_map<uint64_t, std::list<uint64_t>> &graph)
-{
-    for(const auto &pair : graph)
-    {
-        std::cout << pair.first << ": ";
-        for(const auto &neighbor : pair.second)
-        {
-            std::cout << neighbor << " ";
-        }
-
-        std::cout << std::endl;
-    }
-}
-
 void BFS(std::unordered_map<uint64_t, std::list<uint64_t>> &graph, uint64_t start)
 {
     std::unordered_map<uint64_t, bool> visited;
@@ -83,8 +69,6 @@ int main()
     std::cout << "Vertices: ";
     BFS(graph, 0);
     std::cout << std::endl;
-
-    printGraph(graph);
 
     return EXIT_SUCCESS;
 }
