@@ -12,6 +12,7 @@ The algorithms below, written by me, **are given as an example**. Many of them a
 |      Algorithm       |
 |:--------------------:|
 | Breadth-First Search |
+|  Depth-First Search  |
 | Dijkstra's algorithm |
 
 ## Search
