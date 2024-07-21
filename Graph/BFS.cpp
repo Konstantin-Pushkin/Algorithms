@@ -23,7 +23,7 @@ void addingEdgeToGraph(std::unordered_map<uint64_t, std::list<uint64_t>> &graph,
     }
 }
 
-void printGraph(std::unordered_map<u_int64_t, std::list<u_int64_t>> &graph)
+void printGraph(std::unordered_map<uint64_t, std::list<uint64_t>> &graph)
 {
     for(const auto &pair : graph)
     {
@@ -37,10 +37,10 @@ void printGraph(std::unordered_map<u_int64_t, std::list<u_int64_t>> &graph)
     }
 }
 
-void BFS(std::unordered_map<u_int64_t, std::list<u_int64_t>> &graph, u_int64_t start)
+void BFS(std::unordered_map<uint64_t, std::list<uint64_t>> &graph, uint64_t start)
 {
-    std::unordered_map<u_int64_t, bool> visited;
-    std::queue<u_int64_t> queue;
+    std::unordered_map<uint64_t, bool> visited;
+    std::queue<uint64_t> queue;
 
     for(const auto &pair : graph)
     {
@@ -52,7 +52,7 @@ void BFS(std::unordered_map<u_int64_t, std::list<u_int64_t>> &graph, u_int64_t s
 
     while(!queue.empty())
     {
-        u_int64_t vertex = queue.front();
+        uint64_t vertex = queue.front();
         std::cout << vertex << " ";
         queue.pop();
 
@@ -72,7 +72,7 @@ void BFS(std::unordered_map<u_int64_t, std::list<u_int64_t>> &graph, u_int64_t s
 
 int main()
 {
-    std::unordered_map<u_int64_t, std::list<u_int64_t>> graph;
+    std::unordered_map<uint64_t, std::list<uint64_t>> graph;
     addingEdgeToGraph(graph, 0, 1);
     addingEdgeToGraph(graph, 0, 2);
     addingEdgeToGraph(graph, 0, 3);
