@@ -60,6 +60,7 @@ int main()
     addingEdgeToGraph(graph, 2, 5);
     addingEdgeToGraph(graph, 2, 9);
 
+    cout << "Vertices: ";
     BFS(graph, 0);
     cout << endl;
 

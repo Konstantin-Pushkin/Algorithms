@@ -59,7 +59,7 @@ int main()
     addingEdgeToGraph(graph, 2, 5);
     addingEdgeToGraph(graph, 2, 9);
 
-
+    cout << "Vertices: ";
     DFS(graph, 0);
     cout << endl;
 
