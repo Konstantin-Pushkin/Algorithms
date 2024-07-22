@@ -39,8 +39,14 @@ int main()
 {
     std::vector<u_int64_t> nums = {9, 4, 13, 7, 1, 28, 3, 5, 10, 11};
     std::ranges::sort(nums);
+    cout << "Sorted array: ";
+    for(const auto &num : nums)
+    {
+        cout << num << " ";
+    }
+
     u_int64_t res = binarySearch(nums, 13);
-    cout << "The position of the number 13 is " << res << endl;
+    cout << endl << "The position of the number 13 is " << res << endl;
 
     return EXIT_SUCCESS;
 }
