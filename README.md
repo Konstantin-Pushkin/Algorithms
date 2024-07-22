@@ -20,9 +20,11 @@ The algorithms below, written by me, **are given as an example**. Many of them a
 |         Algorithm          | Data structure | Time complexity on average case | Time complexity in the worst case |
 |:--------------------------:|:--------------:|:-------------------------------:|:---------------------------------:|
 |       Binary search        |  Sorted array  |            O(log(n))            |             O(log(n))             |
-| Block Interpolation Search |  Sorted array  |         θ(log(log(n)))          |            θ(sqrt(n))             |
-|    Interpolation Search    |  Sorted array  |         θ(log(log(n)))          |               θ(n)                |
+| Block interpolation search |  Sorted array  |         θ(log(log(n)))          |            θ(sqrt(n))             |
+|    Interpolation search    |  Sorted array  |         θ(log(log(n)))          |               θ(n)                |
+|     Left binary search     |  Sorted array  |            O(log(n))            |               O(1)                |
 |       Linear search        |     Array      |              O(n)               |               O(n)                |
+|    Right binary search     |  Sorted array  |            O(log(n))            |               O(1)                |
 
 ## Sorting
 
@@ -30,7 +32,7 @@ The algorithms below, written by me, **are given as an example**. Many of them a
 |:-----------:|:--------------:|:-----------------------:|:-------------------------------:|:---------------------------------:|
 | Bubble sort |     Array      |          O(n)           |             O(n^2)              |              O(n^2)               |
 | Insert sort |     Array      |          O(n)           |             O(n^2)              |              O(n^2)               |
-|  MergeSort  |     Array      |      O(n log (n))       |           O(n log(n))           |            O(n log(n))            |
+| Merge Sort  |     Array      |      O(n log (n))       |           O(n log(n))           |            O(n log(n))            |
 | Quick sort  |     Array      |       O(n log(n))       |           O(n log(n))           |              O(n^2)               |
 | Shell sort  |     Array      |         θ(n^2)          |             θ(n^2)              |              θ(n^2)               |
 
