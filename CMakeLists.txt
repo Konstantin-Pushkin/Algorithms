@@ -6,11 +6,11 @@ set(CMAKE_CXX_STANDARD 23)
 
 # Search
 add_executable(BinarySearch Search/BinarySearch.cpp)
-add_executable(LeftBinarySearch Search/LeftBinarySearch.cpp)
-add_executable(RightBinarySearch Search/RightBinarySearch.cpp)
 add_executable(LinearSearch Search/LinearSearch.cpp)
 add_executable(InterpolationSearch Search/InterpolationSearch.cpp)
+add_executable(LeftBinarySearch Search/LeftBinarySearch.cpp)
 add_executable(BlockInterpolationSearch Search/BlockInterpolationSearch.cpp)
+add_executable(RightBinarySearch Search/RightBinarySearch.cpp)
 
 # Sorting
 add_executable(BubbleSort Sorting/BubbleSort.cpp)
