@@ -6,6 +6,8 @@ set(CMAKE_CXX_STANDARD 23)
 
 # Search
 add_executable(BinarySearch Search/BinarySearch.cpp)
+add_executable(LeftBinarySearch Search/LeftBinarySearch.cpp)
+add_executable(RightBinarySearch Search/RightBinarySearch.cpp)
 add_executable(LinearSearch Search/LinearSearch.cpp)
 add_executable(InterpolationSearch Search/InterpolationSearch.cpp)
 add_executable(BlockInterpolationSearch Search/BlockInterpolationSearch.cpp)
@@ -23,7 +25,7 @@ add_executable(BFS Graph/BFS.cpp)
 add_executable(BFS_2 Graph/BFS_2.cpp)
 add_executable(DFS Graph/DFS.cpp)
 add_executable(DFS_2 Graph/DFS_2.cpp)
-add_executable(Dijkstra Graph/Dijkstra'_algorithm.cpp)
+add_executable(Dijkstra Graph/DijkstraAlgorithm.cpp)
 
 # Dynamic programming
 add_executable(Fibonacci Dynamic_programming/Fibonacci.cpp)
