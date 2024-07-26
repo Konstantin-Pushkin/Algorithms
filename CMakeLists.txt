@@ -8,7 +8,7 @@ set(CMAKE_CXX_STANDARD 23)
 add_executable(SinglyLinkedList DataStructures/SinglyLinkedList.cpp)
 
 # Dynamic programming
-add_executable(Fibonacci Dynamic_programming/Fibonacci.cpp)
+add_executable(Fibonacci DynamicProgramming/Fibonacci.cpp)
 
 # Graph
 add_executable(BFS Graph/BFS.cpp)
