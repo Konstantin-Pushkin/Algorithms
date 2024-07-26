@@ -4,6 +4,19 @@ project(Algorithms)
 
 set(CMAKE_CXX_STANDARD 23)
 
+# Data structures
+add_executable(SinglyLinkedList DataStructures/SinglyLinkedList.cpp)
+
+# Dynamic programming
+add_executable(Fibonacci Dynamic_programming/Fibonacci.cpp)
+
+# Graph
+add_executable(BFS Graph/BFS.cpp)
+add_executable(BFS_2 Graph/BFS_2.cpp)
+add_executable(DFS Graph/DFS.cpp)
+add_executable(DFS_2 Graph/DFS_2.cpp)
+add_executable(Dijkstra Graph/DijkstraAlgorithm.cpp)
+
 # Search
 add_executable(BinarySearch Search/BinarySearch.cpp)
 add_executable(BlockInterpolationSearch Search/BlockInterpolationSearch.cpp)
@@ -19,13 +32,3 @@ add_executable(MergeSort Sorting/MergeSort.cpp)
 add_executable(QuickSort Sorting/QuickSort.cpp)
 add_executable(QuickSort_2 Sorting/QuickSort_2.cpp)
 add_executable(ShellSort Sorting/ShellSort.cpp)
-
-# Graph
-add_executable(BFS Graph/BFS.cpp)
-add_executable(BFS_2 Graph/BFS_2.cpp)
-add_executable(DFS Graph/DFS.cpp)
-add_executable(DFS_2 Graph/DFS_2.cpp)
-add_executable(Dijkstra Graph/DijkstraAlgorithm.cpp)
-
-# Dynamic programming
-add_executable(Fibonacci Dynamic_programming/Fibonacci.cpp)
