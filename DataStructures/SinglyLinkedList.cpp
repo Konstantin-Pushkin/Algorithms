@@ -61,6 +61,47 @@ public:
         }
     }
 
+    void pop_back()
+    {
+        if(tail == nullptr)
+        {
+            return;
+        }
+
+        if(head == tail)
+        {
+            delete tail;
+            head = tail = nullptr;
+            return;
+        }
+
+        Node *node = head;
+        while(node->next != tail)
+        {
+            node = node->next;
+        }
+        node->next = nullptr;
+        delete tail;
+        tail = node;
+    }
+
+    void pop_front()
+    {
+        if(head == nullptr)
+        {
+            return;
+        }
+
+        Node *node = head;
+        head = node->next;
+        if(head == nullptr)
+        {
+            tail = nullptr;
+        }
+
+        delete node;
+    }
+
     void insert(uint64_t pos, uint64_t data)
     {
         if(pos == 0)
@@ -110,47 +151,6 @@ public:
         }
 
         delete node;
-    }
-
-    void pop_front()
-    {
-        if(head == nullptr)
-        {
-            return;
-        }
-
-        Node *node = head;
-        head = node->next;
-        if(head == nullptr)
-        {
-            tail = nullptr;
-        }
-
-        delete node;
-    }
-
-    void pop_back()
-    {
-        if(tail == nullptr)
-        {
-            return;
-        }
-
-        if(head == tail)
-        {
-            delete tail;
-            head = tail = nullptr;
-            return;
-        }
-
-        Node *node = head;
-        while(node->next != tail)
-        {
-            node = node->next;
-        }
-        node->next = nullptr;
-        delete tail;
-        tail = node;
     }
 
     void print() const
