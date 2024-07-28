@@ -1,63 +1,52 @@
 #include <iostream>
 #include <cstdint>
+#include <memory>
 
 using std::cout;
 using std::endl;
+using std::unique_ptr;
+using std::make_unique;
 
 class Node
 {
 public:
     uint64_t data;
-    Node *next;
+    unique_ptr<Node> next;
 
-    explicit Node(uint64_t data)
-    {
-        this->data = data;
-        this->next = nullptr;
-    }
+    explicit Node(uint64_t data) : data(data), next(nullptr) {}
 };
 
 class SinglyLinkedList
 {
 public:
-    Node *head;
+    unique_ptr<Node> head;
     Node *tail;
 
-    SinglyLinkedList()
-    {
-        this->head = this->tail = nullptr;
-    }
-
-    ~SinglyLinkedList()
-    {
-        while(head != nullptr)
-        {
-            pop_front();
-        }
-    }
+    SinglyLinkedList() : head(nullptr), tail(nullptr) {}
 
     void push_back(uint64_t data)
     {
-        Node *node = new Node(data);
+        auto node = make_unique<Node>(data);
         if(head == nullptr)
         {
-            head = tail = node;
+            head = std::move(node);
+            tail = head.get();
         }
         else
         {
-            tail->next = node;
-            tail = node;
+            tail->next = std::move(node);
+            tail = tail->next.get();
         }
     }
 
     void push_front(uint64_t data)
     {
-        Node *node = new Node(data);
-        node->next = head;
-        head = node;
+        auto node = make_unique<Node>(data);
+        node->next = std::move(head);
+        head = std::move(node);
         if(tail == nullptr)
         {
-            tail = node;
+            tail = head.get();
         }
     }
 
@@ -68,20 +57,19 @@ public:
             return;
         }
 
-        if(head == tail)
+        if(head.get() == tail)
         {
-            delete tail;
-            head = tail = nullptr;
+            head.reset();
+            tail = nullptr;
             return;
         }
 
-        Node *node = head;
-        while(node->next != tail)
+        Node *node = head.get();
+        while(node->next.get() != tail)
         {
-            node = node->next;
+            node = node->next.get();
         }
-        node->next = nullptr;
-        delete tail;
+        node->next.reset();
         tail = node;
     }
 
@@ -92,14 +80,11 @@ public:
             return;
         }
 
-        Node *node = head;
-        head = node->next;
+        head = std::move(head->next);
         if(head == nullptr)
         {
             tail = nullptr;
         }
-
-        delete node;
     }
 
     void insert(uint64_t pos, uint64_t data)
@@ -116,14 +101,12 @@ public:
             return;
         }
 
-        Node *right = left->next;
-        Node *node = new Node(data);
-
-        left->next = node;
-        node->next = right;
-        if(right == nullptr)
+        auto node = make_unique<Node>(data);
+        node->next = std::move(left->next);
+        left->next = std::move(node);
+        if(left->next->next == nullptr)
         {
-            tail = node;
+            tail = left->next.get();
         }
     }
 
@@ -141,25 +124,20 @@ public:
             return;
         }
 
-        Node *node = left->next;
-        Node *right = node->next;
-
-        left->next = right;
-        if(node == tail)
+        left->next = std::move(left->next->next);
+        if(left->next == nullptr)
         {
             tail = left;
         }
-
-        delete node;
     }
 
     void print() const
     {
-        Node *current = head;
+        Node *current = head.get();
         while(current != nullptr)
         {
             cout << current->data << " ";
-            current = current->next;
+            current = current->next.get();
         }
 
         cout << endl;
@@ -168,11 +146,11 @@ public:
 private:
     [[nodiscard]] Node *getAt(uint64_t pos) const
     {
-        Node *node = head;
+        Node *node = head.get();
         uint64_t index = 0;
         while(node && index < pos)
         {
-            node = node->next;
+            node = node->next.get();
             index++;
         }
 
