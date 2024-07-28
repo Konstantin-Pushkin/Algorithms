@@ -5,6 +5,7 @@ project(Algorithms)
 set(CMAKE_CXX_STANDARD 23)
 
 # Data structures
+add_executable(DoublyLinkedList DataStructures/DoublyLinkedList.cpp)
 add_executable(SinglyLinkedList DataStructures/SinglyLinkedList.cpp)
 
 # Dynamic programming
