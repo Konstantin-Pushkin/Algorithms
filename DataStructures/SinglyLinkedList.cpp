@@ -210,5 +210,5 @@ int main()
     cout << "List after pop_back: ";
     list.print();
 
-    return 0;
+    return EXIT_SUCCESS;
 }
