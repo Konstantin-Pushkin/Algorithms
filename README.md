@@ -15,6 +15,18 @@ The algorithms below, written by me, **are given as an example**. Many of them a
         |   insert   |     O(n)     |
         |   erase    |     O(n)     |
         |   getAt    |     O(n)     |
+- ### Doubly linked list
+    - Performance
+
+      |   Method   | Working time |
+      |:----------:|:------------:|
+      | push_back  |     O(1)     |
+      | push_front |     O(1)     |
+      |  pop_back  |     O(1)     |
+      | pop_front  |     O(1)     |
+      |   insert   |     O(n)     |
+      |   erase    |     O(n)     |
+      |   getAt    |     O(n)     |
 
 ## Dynamic programming
 | Algorithm | Working time |
