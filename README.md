@@ -46,7 +46,7 @@ The algorithms below, written by me, **are given as an example**. Many of them a
 |         Algorithm          | Data structure | Time complexity on average case | Time complexity in the worst case |
 |:--------------------------:|:--------------:|:-------------------------------:|:---------------------------------:|
 |       Binary search        |  Sorted array  |            O(log(n))            |             O(log(n))             |
-| Block interpolation search |  Sorted array  |         θ(log(log(n)))          |            θ(sqrt(n))             |
+| Block interpolation search |  Sorted array  |           θ(sqrt(n))            |            θ(sqrt(n))             |
 |    Interpolation search    |  Sorted array  |         θ(log(log(n)))          |               θ(n)                |
 |     Left binary search     |  Sorted array  |            O(log(n))            |               O(1)                |
 |       Linear search        |     Array      |              O(n)               |               O(n)                |
