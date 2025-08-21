@@ -2,87 +2,67 @@
 #include <vector>
 #include <algorithm>
 #include <cmath>
+#include <cstdlib>
 
 using std::cout;
 using std::endl;
 
-u_int64_t blockInterpolationSearch(const std::vector<u_int64_t> &array, size_t numSearch)
-{
-    const u_int64_t lenArray = array.size();
-    if(lenArray == 0)
-    {
-        return -2;
+size_t blockInterpolationSearch(const std::vector<uint64_t> &array, const uint64_t numSearch) {
+    const size_t lenArray = array.size();
+
+    if (lenArray == 0) return SIZE_MAX;
+
+    if (lenArray == 1) return (array[0] == numSearch) ? 0 : SIZE_MAX;
+
+    size_t left = 0;
+    size_t right = lenArray - 1;
+
+    if (array[left] == array[right]) return (array[left] == numSearch) ? left : SIZE_MAX;
+
+    if (numSearch < array[left] || numSearch > array[right]) return SIZE_MAX;
+
+    size_t middle = left + static_cast<size_t>(
+        (static_cast<double>(numSearch - array[left]) /
+         static_cast<double>(array[right] - array[left])) *
+        static_cast<double>(right - left)
+    );
+
+    if (middle >= lenArray) middle = lenArray - 1;
+
+    if (array[middle] == numSearch) return middle;
+
+    const size_t lenBlocks = static_cast<size_t>(std::sqrt(lenArray));
+    if (lenBlocks == 0) {
+        for (size_t i = 0; i < lenArray; ++i)
+            if (array[i] == numSearch)
+                return i;
+
+        return SIZE_MAX;
     }
 
-    u_int64_t left = 0;
-    u_int64_t right = lenArray - 1;
+    if (array[middle] < numSearch) {
+        left = middle + 1;
+        right = std::min(left + lenBlocks - 1, lenArray - 1);
 
-    if(array[left] == array[right])
-    {
-        if(array[left] == numSearch)
-        {
-            return left;
+        while (right < lenArray - 1 && array[right] < numSearch) {
+            left = right + 1;
+            right = std::min(left + lenBlocks - 1, lenArray - 1);
         }
-        else
-        {
-            return -1;
-        }
-    }
+    } else {
+        right = (middle > 0) ? middle - 1 : 0;
+        left = (right >= lenBlocks - 1) ? right - lenBlocks + 1 : 0;
 
-    const u_int64_t middle = left + ((right - left) * (numSearch - array[left])) / (array[right] - array[left]);
-    if(numSearch == middle)
-    {
-        return middle;
-    }
-
-    const auto lenBlocks = static_cast<int64_t>(std::sqrt(lenArray));
-
-    if(numSearch > middle)
-    {
-        if(numSearch > array[middle])
-        {
-            left = middle + 1;
-            right = middle + lenBlocks;
-            while(right < lenArray && array[right - 1] < numSearch)
-            {
-                left = right;
-                right += lenBlocks;
-            }
-        }
-
-        if(right >= lenArray)
-        {
-            right = lenArray - 1;
-        }
-
-        for(u_int64_t t = left; t <= right; ++t)
-        {
-            if(array[t] == numSearch)
-            {
-                return t;
-            }
-        }
-    }
-    else
-    {
-        left = 0;
-        right = middle - 1;
-        while(right > 0 && array[right] >= numSearch)
-        {
-            left += lenBlocks;
-            right -= lenBlocks;
-        }
-
-        for(u_int64_t t = left; t <= right; ++t)
-        {
-            if(array[t] == numSearch)
-            {
-                return t;
-            }
+        while (left > 0 && array[left] > numSearch) {
+            right = (left > 0) ? left - 1 : 0;
+            left = (right >= lenBlocks - 1) ? right - lenBlocks + 1 : 0;
         }
     }
 
-    return -1;
+    for (size_t i = left; i <= right && i < lenArray; ++i)
+        if (array[i] == numSearch)
+            return i;
+
+    return SIZE_MAX;
 }
 
 int main()
